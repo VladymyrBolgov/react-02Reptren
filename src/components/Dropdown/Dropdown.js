@@ -3,29 +3,31 @@ import './Dropdown.css';
 
 class Dropdown extends Component {
   state = {
-    visible: false,
+    visible: false
+  }
+
+  show = () => {
+    this.setState({ visible: true });
   };
 
-  toggle = () => {
-    this.setState(prevState => ({
-      visible: !prevState.visible,
-    }));
+  hide = () => {
+    this.setState({ visible: false });
   };
 
   render() {
-    const { visible } = this.state;
-
     return (
       <div className="Dropdown">
-        <button
-          type="button"
-          className="Dropdown__toggle"
-          onClick={this.toggle}
-        >
-          {visible ? 'Скрыть' : 'Показать'}
+        <button type="button" className="Dropdown__toggle" onClick={this.show}>
+         Показать
         </button>
 
-        {visible && <div className="Dropdown__menu">Выпадающее меню</div>}
+        <button type="button" className="Dropdown__toggle" onClick={this.hide}>
+         Скрыть
+        </button>
+
+        {this.state.visible && (
+          <div className="Dropdown__menu">Выпадающее меню</div>
+        )}
       </div>
     );
   }
