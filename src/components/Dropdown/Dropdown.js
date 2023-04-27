@@ -13,8 +13,8 @@ class Dropdown extends Component {
   };
 
   render() {
-    const { visible } = this.state
-    
+    const { visible } = this.state;
+
     return (
       <div className="Dropdown">
         <button
